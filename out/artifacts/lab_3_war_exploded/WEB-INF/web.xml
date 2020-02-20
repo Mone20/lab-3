@@ -5,7 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>dbservlet</servlet-name>
-        <servlet-class>DBServlet</servlet-class>
+        <servlet-class>WorkersServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

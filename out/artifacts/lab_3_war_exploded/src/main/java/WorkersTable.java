@@ -1,3 +1,5 @@
+import model.Worker;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,7 +66,16 @@ public class WorkersTable  implements Table<Worker>{
         return preparedStatement.executeUpdate();
     }
 
+    public int update(int id, String nameColumn, int newInstance) throws SQLException {
 
+        String sql="UPDATE public.workers\n" +
+                "\tSET "+nameColumn+"=?\n" +
+                "\tWHERE id=?;";
+        PreparedStatement preparedStatement = connect.prepareStatement(sql);
+        preparedStatement.setInt(1,newInstance);
+        preparedStatement.setInt(2,id);
+        return preparedStatement.executeUpdate();
+    }
     public int update(int id, String nameColumn, String newInstance) throws SQLException {
 
       String sql="UPDATE public.workers\n" +
@@ -75,6 +86,7 @@ public class WorkersTable  implements Table<Worker>{
         preparedStatement.setInt(2,id);
         return preparedStatement.executeUpdate();
     }
+
     public Worker select(int id) throws SQLException {
 String sql="SELECT id, firstname, lastname, middlename, birthdate, \"positionId\", \"degreeId\", \"parentId\"\n" +
         "\tFROM public.workers\n" +
@@ -88,5 +100,15 @@ String sql="SELECT id, firstname, lastname, middlename, birthdate, \"positionId\
                 result.getString("middlename"),result.getInt("positionId"),result.getInt("degreeId"),result.getInt("parentId"));
 
         return selectWorker;
+    }
+    public ResultSet selectAll() throws SQLException {
+        String sql="SELECT id, firstname, lastname, middlename, birthdate, \"positionId\", \"degreeId\", \"parentId\"\n" +
+                "\tFROM public.workers\n"
+                ;
+        PreparedStatement preparedStatement = connect.prepareStatement(sql);
+
+        ResultSet result=preparedStatement.executeQuery();
+        return  result;
+
     }
 }

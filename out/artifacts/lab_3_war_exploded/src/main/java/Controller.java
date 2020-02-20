@@ -1,16 +1,13 @@
-import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import javax.swing.text.View;
-import javax.xml.parsers.ParserConfigurationException;
-import org.xml.sax.SAXException;
+
+import model.Worker;
 
 /**
  *
  * @author Rodion
  */
-public class Controller {
+public class Controller<T> {
   public Table table;
     public Controller(Table t)
     {
@@ -33,9 +30,16 @@ public void update(int id, String nameColumn, String newInstance) throws SQLExce
     if(table.update(id,nameColumn,newInstance)>0)
         System.out.println("New instance insert succesfully");
 }
-public Worker select(int id) throws SQLException {
-    return (Worker)table.select(id);
+    public void update(int id, String nameColumn, int newInstance) throws SQLException {
+        if(table.update(id,nameColumn,newInstance)>0)
+            System.out.println("New instance insert succesfully");
+    }
+public T select(int id) throws SQLException {
+    return (T)table.select(id);
 
 }
+public ResultSet selectAll() throws SQLException {
+        return table.selectAll();
+    }
 
 }
