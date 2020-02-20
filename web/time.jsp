@@ -11,6 +11,31 @@
     <title>Hello</title>
 </head>
 <body>
-<h1> Connecting to db...<%=request.getAttribute("d")%></h1>
+<form method="post" action="time?action=show">
+    Научная степень
+    <p><select name="selectDeg" size="1">
+        <option selected value="empty">Не выбрано</option>
+        <%=request.getAttribute("htmlDeg")%>
+    </select></p>
+    Должность
+    <p><select name="selectPos" size="1">
+        <option selected value="empty">Не выбрано</option>
+        <%=request.getAttribute("htmlPos")%>
+    </select></p>
+        <input type="submit" value="Показать"></p>
+</form>
+<table>
+    <tr>
+        <td>id</td>
+        <td>Фамилия</td>
+        <td>Имя</td>
+        <td>Отчество</td>
+
+    </tr>
+        <%=request.getAttribute("select")%>
+    </table>
+<section>
+    <a href="index.jsp">Начальная страница</a>
+</section>
 </body>
 </html>
