@@ -19,12 +19,6 @@ public class Database {
         connection = jdbcUtils.getConnection();
 
         System.out.println("Database successfully connected...");
-        Controller c = new Controller(new WorkersTable(connection));
-        c.insert(new Worker("rodion", "19052000", 5, "asadulin", "radikovich", 0, 0, 1));
-        c.delete(5);
-        c.update(4, "lastname", "asadulin");
-
-
-
+        
     }
 }
