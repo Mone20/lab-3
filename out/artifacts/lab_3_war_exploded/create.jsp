@@ -11,15 +11,14 @@
 </head>
 <body>
 <section>
-    <jsp:useBean id="worker" scope="request" class="model.Worker"/>
-    <form method="post" action="time?action=submit&id=${worker.id}">
+    <form method="post" action="time?action=createSubmit">
         <dl>
             <dt>LastName: </dt>
             <dd><input type="text" name="lastName" /></dd>
         </dl>
         <dl>
             <dt>FirstName: </dt>
-            <dd><input type="text" name="firstName"/></dd>
+            <dd><input type="text" name="firstName" /></dd>
         </dl>
         <dl>
             <dt>MiddleName: </dt>
@@ -27,7 +26,7 @@
         </dl>
         <dl>
             <dt>BirthDate: </dt>
-            <dd><input type="text" name="birthDate" /></dd>
+            <dd><input type="text" name="birthDate"  /></dd>
         </dl>
         <dl>
             <dt>Degree: </dt>
@@ -47,7 +46,17 @@
 
 
         </dl>
-        <button type="submit">Save</button>
+
+        <dl>
+            <dt>Boss(id): </dt>
+
+            <p><select name="selectParent" size="1">
+                <%=request.getAttribute("htmlParent")%>
+            </select></p>
+
+
+        </dl>
+        <button type="submit">Create</button>
     </form>
 </section>
 </body>

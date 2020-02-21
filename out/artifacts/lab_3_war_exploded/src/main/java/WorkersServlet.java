@@ -35,7 +35,7 @@ public class WorkersServlet extends HttpServlet {
             if(controllerDegrees==null) {
                 controllerDegrees = new Controller<Degree>(new DegreeTable());
             }
-        req.setAttribute("d", "connecting and test DB...");
+
         String action = req.getParameter("action");
             String htmlReq = "";
             boolean flag=false;
@@ -73,13 +73,11 @@ public class WorkersServlet extends HttpServlet {
             else
                 flag=false;
         } else if("update".equals(action)) {
+
             flag=true;
             int id=Integer.parseInt(req.getParameter("id"));
             Worker worker=(Worker)controllerWorkers.select(id);
             req.setAttribute("position", ((UniversityPosition)controllerPositions.select(worker.getPositionId())).getPosition());
-
-
-
 
             req.setAttribute("degree", ((Degree)controllerDegrees.select(worker.getDegreeId())).getDegree());
 
@@ -87,13 +85,25 @@ public class WorkersServlet extends HttpServlet {
             req.getRequestDispatcher("update.jsp").forward(req, resp);
 
         }
+        else if("create".equals(action))
+        {
+           /* */
+             result = controllerWorkers.selectAll();
+            String htmlReqParent = "";
+            while (result.next()) {
+                htmlReqParent += " <option value=\""+Integer.toString(result.getInt("id"))+"\">"+result.getString("lastname")+" "+result.getString("firstname")+" "+
+                        result.getString("middlename")+" "+result.getString("birthdate")+"</option>\n" ;
+            }
+            req.setAttribute("htmlParent",htmlReqParent);
+
+            flag=true;
+            req.getRequestDispatcher("create.jsp").forward(req, resp);
+
+        }
         else if("delete".equals(action))
         {
             int id=Integer.parseInt(req.getParameter("id"));
             controllerWorkers.delete(id);
-
-
-
         }
        if(flag==false)
         {
@@ -134,11 +144,36 @@ public class WorkersServlet extends HttpServlet {
         }
         req.setCharacterEncoding("UTF-8");
         String action = req.getParameter("action");
-
         ResultSet result=null;
         PreparedStatement preparedStatement = null;
 
         try {
+            if("createSubmit".equals(action))
+            {
+                if(controllerWorkers==null)
+                    controllerWorkers = new Controller(new WorkersTable(Database.connection));
+
+
+                ResultSet resultWorkers=controllerWorkers.selectAll();
+                int maxId=-2;
+                while(resultWorkers.next())
+                {
+                    if(resultWorkers.getInt("id")>maxId)
+                        maxId=resultWorkers.getInt("id");
+                }
+                String lastName =req.getParameter("lastName");
+                String firstName=req.getParameter("firstName");
+                String middleName=req.getParameter("middleName");
+                String birthDate=req.getParameter("birthDate");
+                int positionId=Integer.parseInt(req.getParameter("selectPos"));
+                int degreeId=Integer.parseInt(req.getParameter("selectDeg"));
+                int parentId=Integer.parseInt(req.getParameter("selectParent"));
+                Worker newWorker=new Worker(firstName,birthDate,maxId+1,lastName,middleName,positionId,degreeId,parentId);
+                controllerWorkers.insert(newWorker);
+                doGet(req,resp);
+
+
+            }
         if ("submit".equals(action)) {
 
             int id=Integer.parseInt(req.getParameter("id"));
@@ -152,9 +187,7 @@ public class WorkersServlet extends HttpServlet {
                 controllerWorkers.update(id,"\"positionId\"",Integer.parseInt(req.getParameter("selectPos")));
                 controllerWorkers.update(id,"\"degreeId\"",Integer.parseInt(req.getParameter("selectDeg")));
                 req.setAttribute("worker", controllerWorkers.select(id));
-                    doGet(req,resp);
-
-
+                doGet(req,resp);
 
         }
         else if("show".equals(action))

@@ -36,6 +36,7 @@
     </table>
 <section>
     <a href="index.jsp">Начальная страница</a>
+    <a href="time?action=create">Создать</a>
 </section>
 </body>
 </html>
