@@ -35,8 +35,9 @@
         <%=request.getAttribute("select")%>
     </table>
 <section>
-    <a href="index.jsp">Начальная страница</a>
+    <a href="/lab_3_war_exploded">Начальная страница</a>
     <a href="time?action=create">Создать</a>
 </section>
+
 </body>
 </html>

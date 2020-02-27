@@ -48,6 +48,17 @@
 
 
         </dl>
+
+        <dl>
+            <dt>Boss(id): </dt>
+
+            <p><select name="selectParent" size="1">
+                <option selected value="-2">Empty(no boss)</option>
+                <%=request.getAttribute("htmlParent")%>
+            </select></p>
+
+
+        </dl>
         <button type="submit">Save</button>
     </form>
 </section>

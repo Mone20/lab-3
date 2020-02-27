@@ -4,13 +4,22 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>dbservlet</servlet-name>
+        <servlet-name>workerservlet</servlet-name>
         <servlet-class>WorkersServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>dbservlet</servlet-name>
+        <servlet-name>workerservlet</servlet-name>
         <url-pattern>/time</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>dbservlet</servlet-name>
+        <servlet-class>DBServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dbservlet</servlet-name>
+        <url-pattern>/xmlCR</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>
