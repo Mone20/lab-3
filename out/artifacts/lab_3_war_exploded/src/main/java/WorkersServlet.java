@@ -1,4 +1,6 @@
 
+import model.Degree;
+import model.UniversityPosition;
 import model.Worker;
 
 import javax.servlet.ServletException;
@@ -57,7 +59,6 @@ public class WorkersServlet extends HttpServlet {
 
 
 
-
         if ("info".equals(action)) {
             flag=true;
             int id=Integer.parseInt(req.getParameter("id"));
@@ -65,8 +66,20 @@ public class WorkersServlet extends HttpServlet {
 
                 Worker worker = (Worker) controllerWorkers.select(id);
 
-                req.setAttribute("position", ((UniversityPosition) controllerPositions.select(worker.getPositionId())).getPosition());
-                req.setAttribute("degree", ((Degree) controllerDegrees.select(worker.getDegreeId())).getDegree());
+if(null==((Degree) controllerDegrees.select(worker.getDegreeId())).getDegree()
+       ||0>worker.getDegreeId())
+    req.setAttribute("degree", "empty");
+
+
+else
+    req.setAttribute("degree", ((Degree) controllerDegrees.select(worker.getDegreeId())).getDegree());
+
+if(null==((UniversityPosition) controllerPositions.select(worker.getPositionId())).getPosition()|| 0>worker.getPositionId())
+    req.setAttribute("position", "empty");
+    else
+    req.setAttribute("position", ((UniversityPosition) controllerPositions.select(worker.getPositionId())).getPosition());
+
+
                 req.setAttribute("worker", worker);
                 req.getRequestDispatcher("info.jsp").forward(req, resp);
             }
@@ -76,6 +89,16 @@ public class WorkersServlet extends HttpServlet {
 
             flag=true;
             int id=Integer.parseInt(req.getParameter("id"));
+
+            result = controllerWorkers.selectAll();
+            String htmlReqParent = "";
+            while (result.next()) {
+                if(result.getInt("id")!=id)
+                htmlReqParent += " <option value=\""+Integer.toString(result.getInt("id"))+"\">"+result.getString("lastname")+" "+result.getString("firstname")+" "+
+                        result.getString("middlename")+" "+result.getString("birthdate")+"</option>\n" ;
+            }
+            req.setAttribute("htmlParent",htmlReqParent);
+
             Worker worker=(Worker)controllerWorkers.select(id);
             req.setAttribute("position", ((UniversityPosition)controllerPositions.select(worker.getPositionId())).getPosition());
 
@@ -88,14 +111,13 @@ public class WorkersServlet extends HttpServlet {
         else if("create".equals(action))
         {
            /* */
-             result = controllerWorkers.selectAll();
+            result = controllerWorkers.selectAll();
             String htmlReqParent = "";
             while (result.next()) {
                 htmlReqParent += " <option value=\""+Integer.toString(result.getInt("id"))+"\">"+result.getString("lastname")+" "+result.getString("firstname")+" "+
                         result.getString("middlename")+" "+result.getString("birthdate")+"</option>\n" ;
             }
             req.setAttribute("htmlParent",htmlReqParent);
-
             flag=true;
             req.getRequestDispatcher("create.jsp").forward(req, resp);
 
@@ -103,6 +125,33 @@ public class WorkersServlet extends HttpServlet {
         else if("delete".equals(action))
         {
             int id=Integer.parseInt(req.getParameter("id"));
+
+
+            Worker w=(Worker)controllerWorkers.select(id);
+            ResultSet resultDelete=null;
+            if(w.getParentId()<0)
+            {
+                resultDelete=controllerWorkers.selectAll();
+                while( resultDelete.next())
+                {
+                    if(resultDelete.getInt(8)==id)
+                    {
+                        controllerWorkers.update(resultDelete.getInt("id"),"\"parentId\"",-2);
+                    }
+                }
+            }
+
+            else
+            {
+                resultDelete=controllerWorkers.selectAll();
+                while( resultDelete.next())
+                {
+                    if(resultDelete.getInt(8)==id)
+                    {
+                        controllerWorkers.update(resultDelete.getInt("id"),"\"parentId\"",w.getParentId());
+                    }
+                }
+            }
             controllerWorkers.delete(id);
         }
        if(flag==false)
@@ -155,7 +204,7 @@ public class WorkersServlet extends HttpServlet {
 
 
                 ResultSet resultWorkers=controllerWorkers.selectAll();
-                int maxId=-2;
+                int maxId=-1;
                 while(resultWorkers.next())
                 {
                     if(resultWorkers.getInt("id")>maxId)
@@ -174,6 +223,7 @@ public class WorkersServlet extends HttpServlet {
 
 
             }
+
         if ("submit".equals(action)) {
 
             int id=Integer.parseInt(req.getParameter("id"));
@@ -186,6 +236,7 @@ public class WorkersServlet extends HttpServlet {
                 controllerWorkers.update(id,"birthdate",req.getParameter("birthDate"));
                 controllerWorkers.update(id,"\"positionId\"",Integer.parseInt(req.getParameter("selectPos")));
                 controllerWorkers.update(id,"\"degreeId\"",Integer.parseInt(req.getParameter("selectDeg")));
+                controllerWorkers.update(id,"\"parentId\"",Integer.parseInt(req.getParameter("selectParent")));
                 req.setAttribute("worker", controllerWorkers.select(id));
                 doGet(req,resp);
 

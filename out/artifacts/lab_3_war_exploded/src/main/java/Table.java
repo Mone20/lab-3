@@ -8,4 +8,5 @@ int update(int id, String nameColumn, String newInstance) throws SQLException;
     int update(int id, String nameColumn, int newInstance) throws SQLException;
 T select(int id) throws SQLException;
 ResultSet selectAll() throws SQLException;
+void truncate() throws SQLException;
 }

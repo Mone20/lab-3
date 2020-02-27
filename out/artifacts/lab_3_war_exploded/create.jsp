@@ -33,6 +33,7 @@
             <dt>Degree: </dt>
 
             <p><select name="selectDeg" size="1">
+                <option selected value="-2">Empty</option>
                 <%=request.getAttribute("htmlDeg")%>
             </select></p>
 
@@ -42,6 +43,7 @@
             <dt>Position: </dt>
 
             <p><select name="selectPos" size="1">
+                <option selected value="-2">Empty</option>
                 <%=request.getAttribute("htmlPos")%>
             </select></p>
 
@@ -52,6 +54,7 @@
             <dt>Boss(id): </dt>
 
             <p><select name="selectParent" size="1">
+                <option selected value="-2">Empty(no boss)</option>
                 <%=request.getAttribute("htmlParent")%>
             </select></p>
 

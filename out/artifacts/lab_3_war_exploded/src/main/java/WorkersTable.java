@@ -103,12 +103,20 @@ String sql="SELECT id, firstname, lastname, middlename, birthdate, \"positionId\
     }
     public ResultSet selectAll() throws SQLException {
         String sql="SELECT id, firstname, lastname, middlename, birthdate, \"positionId\", \"degreeId\", \"parentId\"\n" +
-                "\tFROM public.workers\n"
-                ;
+                "\tFROM public.workers\n";
+
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
 
         ResultSet result=preparedStatement.executeQuery();
         return  result;
+
+    }
+
+    @Override
+    public void truncate() throws SQLException {
+        String sql="TRUNCATE TABLE  public.workers;";
+        PreparedStatement preparedStatement = connect.prepareStatement(sql);
+        preparedStatement.execute();
 
     }
 }

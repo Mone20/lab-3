@@ -1,3 +1,5 @@
+import model.Degree;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -85,6 +87,13 @@ public class DegreeTable implements Table<Degree> {
 
         ResultSet result=preparedStatement.executeQuery();
         return  result;
+
+    }
+    @Override
+    public void truncate() throws SQLException {
+        String sql="TRUNCATE TABLE   public.degrees CASCADE ;";
+        PreparedStatement preparedStatement = connect.prepareStatement(sql);
+        preparedStatement.execute();
 
     }
 }

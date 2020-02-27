@@ -1,3 +1,5 @@
+import model.UniversityPosition;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -85,6 +87,13 @@ public class PositionTable implements Table<UniversityPosition> {
 
         ResultSet result=preparedStatement.executeQuery();
         return  result;
+
+    }
+    @Override
+    public void truncate() throws SQLException {
+        String sql="TRUNCATE TABLE  public.\"position\" CASCADE ;";
+        PreparedStatement preparedStatement = connect.prepareStatement(sql);
+        preparedStatement.execute();
 
     }
 }
