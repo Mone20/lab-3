@@ -15,13 +15,14 @@ public class Controller<T> {
 
     }
 
-    public  void insert(Worker newWorker) throws  SQLException {
+    public  void insert(T newInstance) throws  SQLException {
 
-               if(table.insert(newWorker)>0)
+               if(table.insert(newInstance)>0)
                    System.out.println("New instance  succesfully created");
 
     }
     public void delete(int id) throws SQLException {
+
 
        if(table.delete(id)>0)
            System.out.println(" instance  succesfully deleted..");
@@ -40,6 +41,9 @@ public T select(int id) throws SQLException {
 }
 public ResultSet selectAll() throws SQLException {
         return table.selectAll();
+    }
+    public void truncate() throws SQLException {
+        table.truncate();
     }
 
 }
