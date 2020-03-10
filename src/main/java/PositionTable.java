@@ -1,9 +1,13 @@
+import model.Degree;
 import model.UniversityPosition;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class PositionTable implements Table<UniversityPosition> {
     private  Connection connect=null;
@@ -80,13 +84,24 @@ public class PositionTable implements Table<UniversityPosition> {
 
         return selectPosition;
     }
-    public ResultSet selectAll() throws SQLException {
+
+    @Override
+    public List<UniversityPosition> select(Map<String, String> map) throws SQLException {
+        return null;
+    }
+
+    public List selectAll() throws SQLException {
         String sql="SELECT id, \"position\"\n" +
                 "\tFROM public.\"position\"\n" ;
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
 
         ResultSet result=preparedStatement.executeQuery();
-        return  result;
+        ArrayList<UniversityPosition> listDTO=new ArrayList<UniversityPosition>();
+
+        while(result.next())
+            listDTO.add(new UniversityPosition( result.getInt("id"),result.getString("position")));
+        return  listDTO;
+
 
     }
     @Override

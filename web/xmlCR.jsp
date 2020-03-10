@@ -15,9 +15,17 @@
 <section>
 <a href="xmlCR?action=submitSaveXML">Save ON xmL</a>
 </section>
+
 <section>
-<a href="xmlCR?action=submitDownloadXML">Download DB with XML</a>
+Download DB with xml
 </section>
+<form enctype="multipart/form-data" method="post" >
+    <p><input type="file" name="file">
+        <section>
+        <input type="submit" value="Отправить">
+        </section>
+    </p>
+</form>
 <section>
     <a href="/lab_3_war_exploded">Начальная страница</a>
 </section>

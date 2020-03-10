@@ -1,15 +1,25 @@
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FilenameUtils;
+
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import javax.servlet.http.Part;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.util.List;
 
+@MultipartConfig
 public class DBServlet extends HttpServlet {
-    private Controller controllerWorkers = null;
-    private Controller controllerPositions = null;
-    private Controller controllerDegrees = null;
-
+    private  XMLController xmlC=new XMLController();
     public DBServlet() throws SQLException {
 
     }
@@ -18,29 +28,44 @@ public class DBServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("xmlCR.jsp").forward(req, resp);
+        req.setAttribute("text"," ");
         String action=req.getParameter("action");
         try {
-            XMLController xmlC=new XMLController();
+
         if("submitSaveXML".equals(action))
         {
 
-
-                xmlC.createXML();
-
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-        }
-        if("submitDownloadXML".equals(action))
-        {
+            xmlC.createXML();
 
 
-            xmlC.readXML();
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
         }
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+            try {
+
+                    Part filePart = request.getPart("file");
+                    InputStream fileContent = filePart.getInputStream();
+                    xmlC.readXML(fileContent,filePart.getSubmittedFileName());
+                    fileContent.close();
+
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+
+
+
+
     }
 }

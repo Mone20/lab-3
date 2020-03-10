@@ -10,7 +10,6 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -20,9 +19,10 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
-import java.sql.ResultSet;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class XMLController {
@@ -51,35 +51,35 @@ public class XMLController {
 
 
             Document doc = builder.newDocument();
-            ResultSet resultWorkers=controllerWorkers.selectAll();
-            ResultSet resultPositions=controllerPositions.selectAll();
-            ResultSet resultDegrees=controllerDegrees.selectAll();
+            List<Worker> resultWorkers=controllerWorkers.selectAll();
+            List<UniversityPosition> resultPositions=controllerPositions.selectAll();
+            List<Degree> resultDegrees=controllerDegrees.selectAll();
             Element rootElement =
                     doc.createElement( "Tables");
             // добавляем корневой элемент в объект Document
             doc.appendChild(rootElement);
             Element rootElementWorkers=doc.createElement("Workers");
             rootElement.appendChild(rootElementWorkers);
-            while(resultWorkers.next())
+          for(int i=0;i<resultWorkers.size();i++)
             {
-                rootElementWorkers.appendChild(getWorker(doc,(Worker) controllerWorkers.select(resultWorkers.getInt("id"))));
+                rootElementWorkers.appendChild(getWorker(doc,(Worker) controllerWorkers.select(resultWorkers.get(i).getId())));
 
             }
 
 
             Element rootElementPos=doc.createElement("Positions");
             rootElement.appendChild(rootElementPos);
-            while(resultPositions.next())
+            for(int i=0;i<resultPositions.size();i++)
             {
-                rootElementPos.appendChild(getPosition(doc,(UniversityPosition) controllerPositions.select(resultPositions.getInt("id"))));
+                rootElementPos.appendChild(getPosition(doc,(UniversityPosition) controllerPositions.select(resultPositions.get(i).getId())));
 
             }
 
             Element rootElementDeg=doc.createElement("Degrees");
             rootElement.appendChild(rootElementDeg);
-            while(resultDegrees.next())
+            for(int i=0;i<resultDegrees.size();i++)
             {
-                rootElementDeg.appendChild(getDegree(doc,(Degree) controllerDegrees.select(resultDegrees.getInt("id"))));
+                rootElementDeg.appendChild(getDegree(doc,(Degree) controllerDegrees.select(resultDegrees.get(i).getId())));
 
             }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -98,13 +98,17 @@ public class XMLController {
                 StreamResult file = new StreamResult(f);
                 transformer.transform(source, file);
                 StreamResult console = new StreamResult(System.out);
+                if(Files.exists(Paths.get("E://test/fileXML.xml")))
+                    Files.delete(Paths.get("E://test/fileXML.xml"));
 
-
+                Files.copy(Paths.get(f.toURI()),Paths.get("E://test/fileXML.xml"));
                 //записываем данные
                 transformer.transform(source, console);
                 transformer.transform(source, file);
+
                 System.out.println("Создание XML файла закончено");
             }
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,8 +136,11 @@ public class XMLController {
         catch (SAXException ex) {
             System.out.println(fileXMLName + " is not valid because ");
             System.out.println(ex.getMessage());
+            return false;
         } catch (IOException e) {
+
             e.printStackTrace();
+            return false;
         }
 
         return true;
@@ -175,7 +182,7 @@ public class XMLController {
         node.appendChild(doc.createTextNode(value));
         return node;
     }
-    public void readXML() throws SQLException, ClassNotFoundException {
+    public void readXML(InputStream inputStream,String xmlName) throws SQLException, ClassNotFoundException {
         if(Database.connection==null)
             Database.connectDB();
         if(controllerWorkers==null) {
@@ -187,16 +194,15 @@ public class XMLController {
         if(controllerDegrees==null) {
             controllerDegrees = new Controller<Degree>(new DegreeTable());
         }
-        String filepath = "fileXML.xml";
-        File xmlFile = new File(filepath);
+
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
         try {
             builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(xmlFile);
+            Document doc = builder.parse(inputStream);
             doc.getDocumentElement().normalize();
             DOMSource source = new DOMSource(doc);
-            if(validationXML(source,xmlFile.getName())) {
+            if(validationXML(source,xmlName)) {
 
                 NodeList nodeList = doc.getElementsByTagName("Position");
 

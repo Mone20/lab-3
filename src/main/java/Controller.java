@@ -1,7 +1,7 @@
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
-import model.Worker;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -14,7 +14,6 @@ public class Controller<T> {
        this.table=t;
 
     }
-
     public  void insert(T newInstance) throws  SQLException {
 
                if(table.insert(newInstance)>0)
@@ -39,7 +38,11 @@ public T select(int id) throws SQLException {
     return (T)table.select(id);
 
 }
-public ResultSet selectAll() throws SQLException {
+    public List<T> select(Map<String,String> map) throws SQLException
+    {
+        return table.select(map);
+    }
+public List selectAll() throws SQLException {
         return table.selectAll();
     }
     public void truncate() throws SQLException {

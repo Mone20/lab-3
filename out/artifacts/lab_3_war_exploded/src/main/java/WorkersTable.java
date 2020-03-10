@@ -4,9 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.*;
+
 
 public class WorkersTable  implements Table<Worker>{
     private Connection connect=null;
+    private String selectSQL="SELECT id, firstname, lastname, middlename, birthdate, \"positionId\", \"degreeId\", \"parentId\"\n" +
+            "\tFROM public.workers\n";
     public WorkersTable(Connection connect) throws SQLException {
         this.connect=connect;
         String SQL="  CREATE TABLE IF NOT EXISTS public.workers\n" +
@@ -87,28 +91,70 @@ public class WorkersTable  implements Table<Worker>{
         return preparedStatement.executeUpdate();
     }
 
+    public List<Worker> select(Map<String,String> map) throws SQLException {
+      String sql=selectSQL;
+      String whereSQL="\tWHERE ";
+      String param="=?";
+      String andSQL=" AND ";
+      int index=0;
+      int number=0;
+      for( Map.Entry entry: map.entrySet())
+      {
+          if(entry.getValue()!=null&&!"empty".equals(entry.getValue())) {
+              number++;
+          }
+      }
+          if(number>=1) {
+              sql += whereSQL;
+              int i=0;
+              for (Map.Entry entry : map.entrySet()) {
+                  if (entry.getValue() != null && !"empty".equals(entry.getValue())) {
+                      i++;
+                      sql += entry.getKey()+param;
+                      if(number>i)
+                          sql+=andSQL;
+                  }
+              }
+          }
+        sql+=";";
+        PreparedStatement preparedStatement = connect.prepareStatement(sql);
+        for (Map.Entry entry : map.entrySet()) {
+            if(entry.getValue()!=null&&!"empty".equals(entry.getValue())) {
+                index++;
+                preparedStatement.setInt(index,Integer.parseInt((String)entry.getValue()));
+            }
+        }
+        ResultSet result=preparedStatement.executeQuery();
+        ArrayList<Worker> listDTO=new ArrayList<Worker>();
+
+        while(result.next())
+            listDTO.add(new Worker(result.getString("firstname"),result.getString("birthdate"),result.getInt("id"),result.getString("lastname"),
+                    result.getString("middlename"),result.getInt("positionId"),result.getInt("degreeId"),result.getInt("parentId")));
+        return listDTO;
+    }
     public Worker select(int id) throws SQLException {
-String sql="SELECT id, firstname, lastname, middlename, birthdate, \"positionId\", \"degreeId\", \"parentId\"\n" +
-        "\tFROM public.workers\n" +
-        "\tWHERE id=?;";
+        String sql=selectSQL +
+                "\tWHERE id=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1,id);
         ResultSet result=preparedStatement.executeQuery();
         Worker selectWorker=null;
         if(result.next())
-        selectWorker=new Worker(result.getString("firstname"),result.getString("birthdate"),result.getInt("id"),result.getString("lastname"),
-                result.getString("middlename"),result.getInt("positionId"),result.getInt("degreeId"),result.getInt("parentId"));
+            selectWorker=new Worker(result.getString("firstname"),result.getString("birthdate"),result.getInt("id"),result.getString("lastname"),
+                    result.getString("middlename"),result.getInt("positionId"),result.getInt("degreeId"),result.getInt("parentId"));
 
         return selectWorker;
     }
-    public ResultSet selectAll() throws SQLException {
-        String sql="SELECT id, firstname, lastname, middlename, birthdate, \"positionId\", \"degreeId\", \"parentId\"\n" +
-                "\tFROM public.workers\n";
-
-        PreparedStatement preparedStatement = connect.prepareStatement(sql);
+    public List selectAll() throws SQLException {
+        PreparedStatement preparedStatement = connect.prepareStatement(selectSQL);
 
         ResultSet result=preparedStatement.executeQuery();
-        return  result;
+        ArrayList<Worker> listDTO=new ArrayList<Worker>();
+
+        while(result.next())
+            listDTO.add(new Worker(result.getString("firstname"),result.getString("birthdate"),result.getInt("id"),result.getString("lastname"),
+                    result.getString("middlename"),result.getInt("positionId"),result.getInt("degreeId"),result.getInt("parentId")));
+        return  listDTO;
 
     }
 
