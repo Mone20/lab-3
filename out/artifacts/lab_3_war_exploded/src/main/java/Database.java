@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class Database {
     static Connection connection = null;
 
-    public static void connectDB() throws ClassNotFoundException, SQLException {
+    public static void connectDB() throws SQLException {
 
 
         JDBCUtils jdbcUtils = DataAccessFactory.getJDBCUtils();
