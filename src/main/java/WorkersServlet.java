@@ -11,12 +11,17 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 
 
 
 public class WorkersServlet extends HttpServlet {
+    public static final String POSITION_ID = "positionId";
+    public static final String DEGREE_ID = "degreeId";
+    public static final String PARENT_ID = "parentId";
+    public static final String FILTER="_filter";
     private  Controller controllerWorkers=null;
     private  Controller controllerPositions=null;
     private  Controller controllerDegrees=null;
@@ -31,15 +36,16 @@ public class WorkersServlet extends HttpServlet {
         try {
             if (Database.connection == null)
                 Database.connectDB();
-            if (controllerWorkers == null) {
-                controllerWorkers = new Controller<Worker>(new WorkersTable(Database.connection));
-            }
             if (controllerPositions == null) {
                 controllerPositions = new Controller<UniversityPosition>(new PositionTable());
             }
             if (controllerDegrees == null) {
                 controllerDegrees = new Controller<Degree>(new DegreeTable());
             }
+            if (controllerWorkers == null) {
+                controllerWorkers = new Controller<Worker>(new WorkersTable(Database.connection));
+            }
+
 
             String action = req.getParameter("action");
             String htmlReq = "";
@@ -158,7 +164,7 @@ public class WorkersServlet extends HttpServlet {
                             resultDelete = controllerWorkers.selectAll();
                             for (int i = 0; i < resultDelete.size(); i++) {
                                 if (((Worker) resultDelete.get(i)).getId() == id) {
-                                    controllerWorkers.update(((Worker) resultDelete.get(i)).getId(), "\"parentId\"", -2);
+                                    controllerWorkers.update(((Worker) resultDelete.get(i)).getId(), PARENT_ID, -2);
                                 }
 
                             }
@@ -167,7 +173,7 @@ public class WorkersServlet extends HttpServlet {
                             resultDelete = controllerWorkers.selectAll();
                             for (int i = 0; i < resultDelete.size(); i++) {
                                 if (((Worker) resultDelete.get(i)).getId() == id) {
-                                    controllerWorkers.update(((Worker) resultDelete.get(i)).getId(), "\"parentId\"", w.getParentId());
+                                    controllerWorkers.update(((Worker) resultDelete.get(i)).getId(), PARENT_ID, w.getParentId());
                                 }
 
                             }
@@ -253,14 +259,15 @@ public class WorkersServlet extends HttpServlet {
                     int id=Integer.parseInt(req.getParameter("id"));
                     if(controllerWorkers==null)
                         controllerWorkers = new Controller(new WorkersTable(Database.connection));
-
-                    controllerWorkers.update(id,"lastname",req.getParameter("lastName"));
-                    controllerWorkers.update(id,"firstname",req.getParameter("firstName"));
-                    controllerWorkers.update(id,"middlename",req.getParameter("middleName"));
-                    controllerWorkers.update(id,"birthdate",req.getParameter("birthDate"));
-                    controllerWorkers.update(id,"\"positionId\"",Integer.parseInt(req.getParameter("selectPos")));
-                    controllerWorkers.update(id,"\"degreeId\"",Integer.parseInt(req.getParameter("selectDeg")));
-                    controllerWorkers.update(id,"\"parentId\"",Integer.parseInt(req.getParameter("selectParent")));
+                    HashMap<String,String> mapUpdate=new HashMap<>();
+                    mapUpdate.put("lastname",req.getParameter("lastName"));
+                    mapUpdate.put("firstname",req.getParameter("firstName"));
+                    mapUpdate.put("middlename",req.getParameter("middleName"));
+                    mapUpdate.put("birthdate",req.getParameter("birthDate"));
+                    mapUpdate.put(POSITION_ID,req.getParameter(POSITION_ID));
+                    mapUpdate.put( DEGREE_ID,req.getParameter(DEGREE_ID));
+                    mapUpdate.put( PARENT_ID,req.getParameter(PARENT_ID));
+                    controllerWorkers.update(mapUpdate,id);
                     req.setAttribute("worker", controllerWorkers.select(id));
                     doGet(req,resp);
                     break;
@@ -290,8 +297,20 @@ public class WorkersServlet extends HttpServlet {
                     }
                     req.setAttribute("htmlDeg",htmlReqDeg);
                     HashMap <String,String> map= new HashMap<>();
-                    map.put(" \"degreeId\"",req.getParameter("selectDeg"));
-                    map.put("\"positionId\"",req.getParameter("selectPos"));
+                    Enumeration<String> attributesNames=req.getParameterNames();
+                    while(attributesNames.hasMoreElements())
+                    {
+                        String item=attributesNames.nextElement();
+                        int p=item.indexOf("_");
+                        if(p>0) {
+                            String suff=item.substring(p,item.length());
+                            if("_filter".equals(suff)) {
+                                String name = item.substring(0, p);
+                                System.out.println(name);
+                                map.put(name, req.getParameter(item));
+                            }
+                        }
+                    }
                     List<Worker> list=controllerWorkers.select(map);
                     ResultSet  resultQuery=null;
                     String htmlReq = "";
@@ -299,6 +318,7 @@ public class WorkersServlet extends HttpServlet {
                         htmlReq += "\n<tr>\n" +
                                 "        <td>" + Integer.toString(w.getId()) + "</td>\n" +
                                 "        <td>" + w.getLastName()+ "</td>\n" +
+
                                 "        <td>" + w.getFirstName()+ "</td>\n" +
                                 "        <td>" + w.getMiddleName() + "</td>\n" +
                                 "        <td><a href=\"time?action=info&id=" + Integer.toString(w.getId()) + "\">more...</a></td>\n" +

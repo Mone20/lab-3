@@ -13,12 +13,12 @@
 <body>
 <form method="post" action="time?action=show">
     Научная степень
-    <p><select name="selectDeg" size="1">
+    <p><select name="degreeId_filter" size="1">
         <option selected value="empty">Не выбрано</option>
         <%=request.getAttribute("htmlDeg")%>
     </select></p>
     Должность
-    <p><select name="selectPos" size="1">
+    <p><select name="positionId_filter" size="1">
         <option selected value="empty">Не выбрано</option>
         <%=request.getAttribute("htmlPos")%>
     </select></p>

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,26 +14,27 @@ public class PositionTable implements Table<UniversityPosition> {
     private  Connection connect=null;
     public PositionTable() throws SQLException {
         this.connect=Database.connection;
-        String SQL=" CREATE TABLE IF NOT EXISTS public.\"position\"\n" +
+        String SQL=" CREATE TABLE IF NOT EXISTS public.position\n" +
                 "(\n" +
                 "    id integer NOT NULL,\n" +
-                "    \"position\" character varying(20) COLLATE pg_catalog.\"default\" NOT NULL,\n" +
+                "    position character varying(20) COLLATE pg_catalog.default NOT NULL,\n" +
                 "    CONSTRAINT position_pkey PRIMARY KEY (id)\n" +
                 ")\n" +
                 "\n" +
                 "TABLESPACE pg_default;\n" +
                 "\n" +
-                "ALTER TABLE public.\"position\"\n" +
+                "ALTER TABLE public.position\n" +
                 "    OWNER to postgres;";
         PreparedStatement preparedStatement = connect.prepareStatement(SQL);
         preparedStatement.executeUpdate();
+
         System.out.println("Table successfully created..");
 
     }
     public int insert(UniversityPosition position) throws SQLException {
 
-        String sql="INSERT INTO public.\"position\"(\n" +
-                "\tid, \"position\")\n" +
+        String sql="INSERT INTO public.position(\n" +
+                "\tid, position)\n" +
                 "\tVALUES (?, ?);";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1, position.getId());
@@ -43,7 +45,7 @@ public class PositionTable implements Table<UniversityPosition> {
 
     public int delete(int id) throws SQLException {
         Connection connect=null;
-        String sql="DELETE FROM public.\"position\"\n" +
+        String sql="DELETE FROM public.position\n" +
                 "\tWHERE id=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1,id);
@@ -53,7 +55,7 @@ public class PositionTable implements Table<UniversityPosition> {
 
     public int update(int id, String nameColumn, String newInstance) throws SQLException {
 
-        String sql="UPDATE public.\"position\"\n" +
+        String sql="UPDATE public.position\n" +
                 "\tSET "+nameColumn+"=?\n" +
                 "\tWHERE id=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
@@ -61,9 +63,15 @@ public class PositionTable implements Table<UniversityPosition> {
         preparedStatement.setInt(2,id);
         return preparedStatement.executeUpdate();
     }
+
+    @Override
+    public int update(HashMap<String, String> map, int id) throws SQLException {
+        return 0;
+    }
+
     public int update(int id, String nameColumn, int newInstance) throws SQLException {
 
-        String sql="UPDATE public.\"position\"\n" +
+        String sql="UPDATE public.position\n" +
                 "\tSET "+nameColumn+"=?\n" +
                 "\tWHERE id=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
@@ -72,8 +80,8 @@ public class PositionTable implements Table<UniversityPosition> {
         return preparedStatement.executeUpdate();
     }
     public UniversityPosition select(int id) throws SQLException {
-        String sql="SELECT id, \"position\"\n" +
-                "\tFROM public.\"position\"\n" +
+        String sql="SELECT id, position\n" +
+                "\tFROM public.position\n" +
                 "\tWHERE id=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1,id);
@@ -91,8 +99,8 @@ public class PositionTable implements Table<UniversityPosition> {
     }
 
     public List selectAll() throws SQLException {
-        String sql="SELECT id, \"position\"\n" +
-                "\tFROM public.\"position\"\n" ;
+        String sql="SELECT id, position\n" +
+                "\tFROM public.position\n" ;
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
 
         ResultSet result=preparedStatement.executeQuery();
@@ -106,7 +114,7 @@ public class PositionTable implements Table<UniversityPosition> {
     }
     @Override
     public void truncate() throws SQLException {
-        String sql="TRUNCATE TABLE  public.\"position\" CASCADE ;";
+        String sql="TRUNCATE TABLE  public.position CASCADE ;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.execute();
 

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,9 +16,9 @@ public class DegreeTable implements Table<Degree> {
         this.connect=Database.connection;
         String SQL=" CREATE TABLE IF NOT EXISTS public.degrees\n" +
                 "(\n" +
-                "    \"Id\" integer NOT NULL,\n" +
+                "    Id integer NOT NULL,\n" +
                 "    degree character varying(20) COLLATE pg_catalog.\"default\" NOT NULL,\n" +
-                "    CONSTRAINT degree_pkey PRIMARY KEY (\"Id\")\n" +
+                "    CONSTRAINT degree_pkey PRIMARY KEY (Id)\n" +
                 ")\n" +
                 "\n" +
                 "TABLESPACE pg_default;\n" +
@@ -26,13 +27,15 @@ public class DegreeTable implements Table<Degree> {
                 "    OWNER to postgres;";
         PreparedStatement preparedStatement = connect.prepareStatement(SQL);
         preparedStatement.executeUpdate();
+
+
         System.out.println("Table successfully created..");
 
     }
     public int insert(Degree d) throws SQLException {
 
         String sql="INSERT INTO public.degrees(\n" +
-                "\t\"Id\", degree)\n" +
+                "\tId, degree)\n" +
                 "\tVALUES (?, ?);";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1, d.getId());
@@ -70,10 +73,16 @@ public class DegreeTable implements Table<Degree> {
         preparedStatement.setInt(2,id);
         return preparedStatement.executeUpdate();
     }
+
+    @Override
+    public int update(HashMap<String, String> map, int id) throws SQLException {
+        return 0;
+    }
+
     public Degree select(int id) throws SQLException {
-        String sql="SELECT \"Id\", degree\n" +
+        String sql="SELECT Id, degree\n" +
                 "\tFROM public.degrees" +
-                "\tWHERE \"Id\"=?;";
+                "\tWHERE Id=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1,id);
         ResultSet result=preparedStatement.executeQuery();
@@ -90,7 +99,7 @@ public class DegreeTable implements Table<Degree> {
     }
 
     public List selectAll() throws SQLException {
-        String sql="SELECT \"Id\", degree\n" +
+        String sql="SELECT Id, degree\n" +
                 "\tFROM public.degrees"
                 ;
         PreparedStatement preparedStatement = connect.prepareStatement(sql);

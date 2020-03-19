@@ -9,7 +9,7 @@ import java.util.*;
 
 public class WorkersTable  implements Table<Worker>{
     private Connection connect=null;
-    private String selectSQL="SELECT id, firstname, lastname, middlename, birthdate, \"positionId\", \"degreeId\", \"parentId\"\n" +
+    private String selectSQL="SELECT id, firstname, lastname, middlename, birthdate, positionId, degreeId, parentId\n" +
             "\tFROM public.workers\n";
     public WorkersTable(Connection connect) throws SQLException {
         this.connect=connect;
@@ -20,16 +20,16 @@ public class WorkersTable  implements Table<Worker>{
                 "    lastname character varying(20) COLLATE pg_catalog.\"default\" NOT NULL,\n" +
                 "    middlename character varying(20) COLLATE pg_catalog.\"default\" NOT NULL,\n" +
                 "    birthdate character varying(20) COLLATE pg_catalog.\"default\" NOT NULL,\n" +
-                "    \"positionId\" integer,\n" +
-                "    \"degreeId\" integer,\n" +
-                "    \"parentId\" integer,\n" +
+                "    positionId integer,\n" +
+                "    degreeId integer,\n" +
+                "    parentId integer,\n" +
                 "    CONSTRAINT workers_pkey PRIMARY KEY (id),\n" +
-                "    CONSTRAINT \"positionId\" FOREIGN KEY (\"positionId\")\n" +
-                "        REFERENCES public.\"position\" (id) MATCH SIMPLE\n" +
+                "    CONSTRAINT positionId FOREIGN KEY (positionId)\n" +
+                "        REFERENCES public.position (id) MATCH SIMPLE\n" +
                 "        ON UPDATE NO ACTION\n" +
                 "        ON DELETE NO ACTION,\n" +
-                "    CONSTRAINT \"workers_degreeId_fkey\" FOREIGN KEY (\"degreeId\")\n" +
-                "        REFERENCES public.degrees (\"Id\") MATCH SIMPLE\n" +
+                "    CONSTRAINT workers_degreeId_fkey FOREIGN KEY (degreeId)\n" +
+                "        REFERENCES public.degrees (Id) MATCH SIMPLE\n" +
                 "        ON UPDATE NO ACTION\n" +
                 "        ON DELETE NO ACTION\n" +
                 ")\n" +
@@ -46,7 +46,7 @@ public class WorkersTable  implements Table<Worker>{
     public int insert(Worker newInstance) throws SQLException {
 
         String sql="INSERT INTO public.workers(\n" +
-                "\tid, firstname, lastname, middlename, birthdate, \"positionId\", \"degreeId\", \"parentId\")\n" +
+                "\tid, firstname, lastname, middlename, birthdate, positionId, degreeId, parentId)\n" +
                 "\tVALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1, newInstance.getId());
@@ -88,6 +88,39 @@ public class WorkersTable  implements Table<Worker>{
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setString(1,newInstance);
         preparedStatement.setInt(2,id);
+        return preparedStatement.executeUpdate();
+    }
+    public int update(HashMap<String,String> map,int id) throws SQLException {
+        String sql="UPDATE public.workers\n" +
+                "\tSET ";
+
+        int index=map.size();
+        for( Map.Entry entry: map.entrySet())
+        {
+                sql+=entry.getKey()+"=?";
+                index--;
+                if(index>0)
+                    sql+=",";
+
+        }
+        sql+=  "\tWHERE id=?;";
+        PreparedStatement preparedStatement = connect.prepareStatement(sql);
+        index=1;
+        for( Map.Entry entry: map.entrySet())
+        {
+            if(((String)entry.getKey()).indexOf("Id")<0)
+            {
+                preparedStatement.setString(index,(String)entry.getValue());
+                index++;
+            }
+            else
+            {
+                preparedStatement.setInt(index,Integer.parseInt((String)entry.getValue()));
+                index++;
+            }
+
+        }
+        preparedStatement.setInt(map.size()+1,id);
         return preparedStatement.executeUpdate();
     }
 
