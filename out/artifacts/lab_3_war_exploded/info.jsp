@@ -16,7 +16,7 @@
     <jsp:useBean id="worker" scope="request" class="model.Worker"/>
     <tr>
 
-        <td>ID: ${worker.id} | LastName: ${worker.lastName} | FirstName: ${worker.firstName}| MiddleName: ${worker.middleName}|BirthDate: ${worker.birthDate}|Position: <%=request.getAttribute("position")%>|Degree: <%=request.getAttribute("degree")%>|</td>
+        <td>ID: ${worker.id} | LastName: ${worker.lastName} | FirstName: ${worker.firstName}| MiddleName: ${worker.middleName}|BirthDate: ${worker.birthDate}|UniversityPosition: <%=request.getAttribute("position")%>|Degree: <%=request.getAttribute("degree")%>|</td>
         <td><a href="time?action=update&id=${worker.id}">Update</a></td>
         <td><a href="time?action=delete&id=${worker.id}">Delete</a></td>
         <td><a href="time?action=info&id=${worker.parentId}">Boss</a></td>

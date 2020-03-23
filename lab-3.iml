@@ -32,5 +32,8 @@
     <orderEntry type="library" name="com.google.code.maven-play-plugin.postgresql:postgresql:9.0-801.jdbc4-patched-play-1.2.3" level="project" />
     <orderEntry type="library" name="commons-io-2.6" level="project" />
     <orderEntry type="library" name="commons-fileupload-1.4" level="project" />
+    <orderEntry type="library" name="postgresql-42.2.9" level="project" />
+    <orderEntry type="library" name="postgresql-42.2.9 (2)" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>
