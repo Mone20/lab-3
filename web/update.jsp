@@ -40,7 +40,7 @@
 
         </dl>
         <dl>
-            <dt>Position: </dt>
+            <dt>UniversityPosition: </dt>
 
                 <p><select name="positionId" size="1">
                     <%=request.getAttribute("htmlPos")%>

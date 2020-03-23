@@ -146,7 +146,7 @@ public class XMLController {
         return true;
     }
     private static Node getPosition(Document doc, UniversityPosition p) {
-        Element pos = doc.createElement("Position");
+        Element pos = doc.createElement("UniversityPosition");
 
 
         pos.setAttribute("id",Integer.toString( p.getId()));
@@ -204,7 +204,7 @@ public class XMLController {
             DOMSource source = new DOMSource(doc);
             if(validationXML(source,xmlName)) {
 
-                NodeList nodeList = doc.getElementsByTagName("Position");
+                NodeList nodeList = doc.getElementsByTagName("UniversityPosition");
 
 
                 controllerWorkers.truncate();

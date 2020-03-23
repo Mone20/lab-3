@@ -109,21 +109,12 @@ public class WorkersTable  implements Table<Worker>{
         for( Map.Entry entry: map.entrySet())
         {
             if(((String)entry.getKey()).indexOf("Id")<0)
-            {   System.out.println("WRITE STRING");
-                System.out.println(((String)entry.getKey()));
-                System.out.println(((String)entry.getKey()).indexOf("Id"));
-                System.out.println(((String)entry.getKey()).indexOf("id"));
-
+            {
                 preparedStatement.setString(index,(String)entry.getValue());
                 index++;
             }
             else
             {
-                System.out.println("WRITE INT");
-                System.out.println(((String)entry.getKey()));
-                System.out.println(((String)entry.getKey()).indexOf("Id"));
-                System.out.println(((String)entry.getKey()).indexOf("id"));
-
                 preparedStatement.setInt(index,Integer.parseInt((String)entry.getValue()));
                 index++;
             }

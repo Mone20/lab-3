@@ -13,6 +13,15 @@
         <url-pattern>/time</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>positionservlet</servlet-name>
+        <servlet-class>PositionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>positionservlet</servlet-name>
+        <url-pattern>/position</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>dbservlet</servlet-name>
         <servlet-class>DBServlet</servlet-class>
     </servlet>
