@@ -13,7 +13,7 @@ import java.util.Map;
 public class DegreeTable implements Table<Degree> {
     private static Connection connect=null;
     public DegreeTable() throws SQLException {
-        this.connect=Database.connection;
+        this.connect = Database.connection;
         String SQL=" CREATE TABLE IF NOT EXISTS public.degrees\n" +
                 "(\n" +
                 "    Id integer NOT NULL,\n" +
@@ -100,8 +100,7 @@ public class DegreeTable implements Table<Degree> {
 
     public List selectAll() throws SQLException {
         String sql="SELECT Id, degree\n" +
-                "\tFROM public.degrees"
-                ;
+                "\tFROM public.degrees";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
 
         ResultSet result=preparedStatement.executeQuery();

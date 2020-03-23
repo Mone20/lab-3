@@ -1,8 +1,3 @@
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FilenameUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -49,20 +44,13 @@ public class DBServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            try {
-
-                    Part filePart = request.getPart("file");
-                    InputStream fileContent = filePart.getInputStream();
-                    xmlC.readXML(fileContent,filePart.getSubmittedFileName());
-                    fileContent.close();
+        Part filePart = request.getPart("file");
+        InputStream fileContent = filePart.getInputStream();
+        //  xmlC.readXML(fileContent,filePart.getSubmittedFileName());
+        fileContent.close();
 
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
 
 

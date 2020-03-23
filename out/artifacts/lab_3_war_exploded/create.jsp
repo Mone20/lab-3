@@ -40,7 +40,7 @@
 
         </dl>
         <dl>
-            <dt>Position: </dt>
+            <dt>UniversityPosition: </dt>
 
             <p><select name="selectPos" size="1">
                 <option selected value="-2">Empty</option>
