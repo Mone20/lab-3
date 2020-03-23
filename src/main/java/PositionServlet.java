@@ -102,13 +102,10 @@ public class PositionServlet extends HttpServlet {
 
         try {
             if ("createPosition".equals(action)) {
-//                if (controllerPositions == null)
-//                    controllerPositions = new Controller(new PositionTable(Database.connection));
 
-                controllerPositions.selectAll();
                 List resultPosition = controllerPositions.selectAll();
                 int maxId = -1;
-                for (int i = 0; i < result.size(); i++) {
+                for (int i = 0; i < resultPosition.size(); i++) {
                     UniversityPosition pos = (UniversityPosition) resultPosition.get(i);
                     if (pos.getId() > maxId)
                         maxId = pos.getId();
@@ -120,7 +117,7 @@ public class PositionServlet extends HttpServlet {
                 result = controllerPositions.selectAll();
                 String htmlReq = "";
                 for (int i = 0; i < result.size(); i++) {
-                    UniversityPosition pos = (UniversityPosition) resultPosition.get(i);
+                    UniversityPosition pos = (UniversityPosition) result.get(i);
                     htmlReq += "\n<tr>\n" +
                             " <td>" + Integer.toString(pos.getId()) + "</td>\n" +
                             " <td>" + pos.getPosition() + "</td>\n" +
@@ -142,17 +139,7 @@ public class PositionServlet extends HttpServlet {
                 controllerPositions.update(id, "position", req.getParameter("position"));
                 doGet(req, resp);
                 req.getRequestDispatcher("position.jsp").forward(req, resp);
-            } //TODO СТАРОЕ
-//                if ("submit".equals(action)) {
-//
-//                    int id = Integer.parseInt(req.getParameter("id"));
-//                    if (controllerPositions == null)
-//                        controllerPositions = new Controller(new DegreeTable(Database.connection));
-//
-//                    controllerPositions.update(id, "degree", req.getParameter("degree"));
-//                    doGet(req, resp);
-//                    req.getRequestDispatcher("degree.jsp").forward(req, resp);
-//                }
+            }
         } catch (SQLException e) {
 
             e.printStackTrace();
