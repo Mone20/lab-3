@@ -53,7 +53,7 @@ public class PositionServlet extends HttpServlet {
                         result = controllerPositions.selectAll();
                         htmlReqParent = "";
                         for (int i = 0; i < result.size(); i++) {
-                            int idSelect = (((Worker) result.get(i)).getId());
+                            int idSelect = (((UniversityPosition) result.get(i)).getId());
                             String position = (((UniversityPosition) result.get(i)).getPosition());
                             htmlReqParent += " <option value=\"" + Integer.toString(idSelect) + "\">" + position + "</option>\n";
                         }

@@ -9,6 +9,9 @@
 <a href="time">СПИСОК СОТРУДНИКОВ</a>
 </section>
 <section>
+    <a href="position">СПИСОК ДОЛЖНОСТЕЙ</a>
+</section>
+<section>
 <a href="xmlCR">WRITE/READ xmL</a>
 </section>
 </body>
