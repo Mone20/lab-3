@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DegreeTable implements Table<Degree> {
     private static Connection connect=null;
-    public DegreeTable() throws SQLException {
+    public DegreeTable(Connection connection) throws SQLException {
         this.connect=Database.connection;
         String SQL=" CREATE TABLE IF NOT EXISTS public.degrees\n" +
                 "(\n" +
@@ -23,8 +23,8 @@ public class DegreeTable implements Table<Degree> {
         PreparedStatement preparedStatement = connect.prepareStatement(SQL);
         preparedStatement.executeUpdate();
         System.out.println("Table successfully created..");
-
     }
+
     public int insert(Degree d) throws SQLException {
 
         String sql="INSERT INTO public.degrees(\n" +
@@ -35,13 +35,30 @@ public class DegreeTable implements Table<Degree> {
         preparedStatement.setString(2, d.getDegree());
         return preparedStatement.executeUpdate();
     }
-
+//    public int delete(int id) throws SQLException {
+//        String sql = "DELETE FROM public.workers\n" +
+//                "\tWHERE degreeId=?;";
+//        PreparedStatement preparedStatement = connect.prepareStatement(sql);
+//        preparedStatement.setInt(1, id);
+//        preparedStatement.executeUpdate();
+//        sql = "DELETE FROM public.degree\n" +
+//                "\tWHERE id=?;";
+//        preparedStatement = connect.prepareStatement(sql);
+//        preparedStatement.setInt(1, id);
+//        preparedStatement.executeUpdate();
+//        return preparedStatement.executeUpdate();
+//    }
 
     public int delete(int id) throws SQLException {
-        Connection connect=null;
-        String sql="DELETE FROM public.degrees\n" +
-                "\tWHERE id=?;";
+        // Connection connect=null;
+        String sql = "DELETE FROM public.workers\n" +
+                "\tWHERE \"degreeId\"=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
+        preparedStatement.setInt(1,id);
+        preparedStatement.executeUpdate();
+        sql="DELETE FROM public.degrees\n" +
+                "\tWHERE \"Id\"=?;";
+        preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1,id);
         return preparedStatement.executeUpdate();
     }
@@ -49,7 +66,7 @@ public class DegreeTable implements Table<Degree> {
 
         String sql="UPDATE public.degrees\n" +
                 "\tSET "+nameColumn+"=?\n" +
-                "\tWHERE id=?;";
+                "\tWHERE \"Id\"=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1,newInstance);
         preparedStatement.setInt(2,id);
@@ -60,22 +77,22 @@ public class DegreeTable implements Table<Degree> {
 
         String sql="UPDATE public.degrees\n" +
                 "\tSET "+nameColumn+"=?\n" +
-                "\tWHERE id=?;";
+                "\tWHERE \"Id\"=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setString(1,newInstance);
         preparedStatement.setInt(2,id);
         return preparedStatement.executeUpdate();
     }
     public Degree select(int id) throws SQLException {
+        Degree selectDegree = null;
         String sql="SELECT \"Id\", degree\n" +
                 "\tFROM public.degrees" +
                 "\tWHERE \"Id\"=?;";
         PreparedStatement preparedStatement = connect.prepareStatement(sql);
         preparedStatement.setInt(1,id);
         ResultSet result=preparedStatement.executeQuery();
-        Degree selectDegree=null;
         if(result.next())
-         selectDegree =new Degree( result.getInt("id"),result.getString("degree"));
+            selectDegree =new Degree( result.getInt("id"),result.getString("degree"));
         return selectDegree;
 
     }

@@ -8,6 +8,11 @@
 <section>
 <a href="time">СПИСОК СОТРУДНИКОВ</a>
 </section>
+
+<section>
+    <a href="degree">НАУЧНЫЕ СТЕПЕНИ</a>
+</section>
+
 <section>
 <a href="xmlCR">WRITE/READ xmL</a>
 </section>

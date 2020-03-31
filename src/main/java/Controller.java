@@ -21,6 +21,7 @@ public class Controller<T> {
                    System.out.println("New instance  succesfully created");
 
     }
+
     public void delete(int id) throws SQLException {
 
 

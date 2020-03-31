@@ -10,7 +10,6 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -22,8 +21,6 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class XMLController {
     private  Controller controllerWorkers=null;
@@ -40,7 +37,7 @@ public class XMLController {
             controllerPositions = new Controller<UniversityPosition>(new PositionTable());
         }
         if(controllerDegrees==null) {
-            controllerDegrees = new Controller<Degree>(new DegreeTable());
+            controllerDegrees = new Controller<Degree>(new DegreeTable(Database.connection));
         }
 
 
@@ -185,7 +182,7 @@ public class XMLController {
             controllerPositions = new Controller<UniversityPosition>(new PositionTable());
         }
         if(controllerDegrees==null) {
-            controllerDegrees = new Controller<Degree>(new DegreeTable());
+            controllerDegrees = new Controller<Degree>(new DegreeTable(Database.connection));
         }
         String filepath = "fileXML.xml";
         File xmlFile = new File(filepath);

@@ -35,7 +35,7 @@ public class WorkersServlet extends HttpServlet {
                 controllerPositions = new Controller<UniversityPosition>(new PositionTable());
             }
             if(controllerDegrees==null) {
-                controllerDegrees = new Controller<Degree>(new DegreeTable());
+                controllerDegrees = new Controller<Degree>(new DegreeTable(Database.connection));
             }
 
         String action = req.getParameter("action");
@@ -110,7 +110,7 @@ if(null==((UniversityPosition) controllerPositions.select(worker.getPositionId()
         }
         else if("create".equals(action))
         {
-           /* */
+
             result = controllerWorkers.selectAll();
             String htmlReqParent = "";
             while (result.next()) {
@@ -158,7 +158,6 @@ if(null==((UniversityPosition) controllerPositions.select(worker.getPositionId()
         {
 
             result=controllerWorkers.selectAll();
-
             while (result.next()) {
                 htmlReq += "\n<tr>\n" +
                         "        <td>" + Integer.toString(result.getInt("id")) + "</td>\n" +
