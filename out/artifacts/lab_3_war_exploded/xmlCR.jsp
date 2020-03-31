@@ -13,13 +13,25 @@
 <body>
 <h1>Write/Read xml</h1>
 <section>
-<a href="xmlCR?action=submitSaveXML">Save ON xmL</a>
+    <form method="post" action="xmlCR?action=exportXML">
+        Научная степень
+        <p><select name="degreeId_filter" size="1">
+            <option selected value="empty">Не выбрано</option>
+            <%=request.getAttribute("htmlDeg")%>
+        </select></p>
+        Должность
+        <p><select name="positionId_filter" size="1">
+            <option selected value="empty">Не выбрано</option>
+            <%=request.getAttribute("htmlPos")%>
+        </select></p>
+        <input type="submit" value="Показать"></p>
+    </form>
 </section>
 
 <section>
 Download DB with xml
 </section>
-<form enctype="multipart/form-data" method="post" >
+<form enctype="multipart/form-data" method="post" action="xmlCR?action=importXML" >
     <p><input type="file" name="file">
         <section>
         <input type="submit" value="Отправить">

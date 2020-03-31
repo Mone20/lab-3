@@ -2,19 +2,64 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="lab-3:war exploded" />
+      <artifact name="lab-3:ejb exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d93012b9-c9e4-4d2e-a1b0-5149473db4a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/lab_3_ejb_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/EJB_3_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/javax.ejb-api-3.2.2.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/PositionServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/PositionServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/PositionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/PositionServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PositionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PositionServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PositionServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PositionServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab-3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab-3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/DBServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/DegreeTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/PositionServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/PositionTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/Table.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/WorkersServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/WorkersTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/XMLController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/model/Worker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/model/Worker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/DBServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/Database.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/DegreeTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/PositionServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/PositionTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/Table.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/WorkersServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/WorkersTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/XMLController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/model/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/model/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/xmlCR.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/xmlCR.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DBServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/DBServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DegreeTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tables/DegreeTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PositionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/PositionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PositionTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tables/PositionTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WorkersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/WorkersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WorkersTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tables/WorkersTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/XMLController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DBServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DegreeTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PositionServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PositionTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Table.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/WorkersServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/WorkersTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/XMLController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Worker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Worker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/xmlCR.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/xmlCR.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +73,7 @@
         <option value="Tag Library Descriptor" />
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -38,6 +84,11 @@
         <option name="argument" value="--follow-tags" />
         <option name="title" value="Current Branch" />
       </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -91,7 +142,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20765832" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -108,10 +159,146 @@
   </component>
   <component name="RunManager" selected="Tomcat Server.tomcat-server">
     <configuration name="Database" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Database" />
+      <option name="MAIN_CLASS_NAME" value="com.db.Database" />
       <module name="lab-3" />
       <method v="2">
         <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GlassFish 5.0.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.0.0" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment />
+      <server-settings>
+        <option name="DOMAIN" value="domain1" />
+        <option name="PRESERVE" value="false" />
+        <option name="COMPATIBILITY" value="false" />
+        <option name="VIRTUAL_SERVER" />
+        <option name="USERNAME" value="admin" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="GlassFish" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9009" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TomEE 9.0.31" type="TomeeConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="TomEE 9.0.31" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="lab-3:ejb exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_lab-3_4" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="31925" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="lab-3:ejb exploded" />
+        </option>
       </method>
     </configuration>
     <configuration name="lab3" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.31" ALTERNATIVE_JRE_ENABLED="false">
@@ -188,7 +375,6 @@
       </method>
     </configuration>
     <configuration name="tomcat-server" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.31" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/lab_3_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="lab-3:war exploded">
@@ -258,12 +444,17 @@
         <option name="BuildArtifacts" enabled="true">
           <artifact name="lab-3:war exploded" />
         </option>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="lab-3:ejb exploded" />
+        </option>
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Database" />
+      <item itemvalue="GlassFish Server.GlassFish 5.0.0" />
       <item itemvalue="Tomcat Server.tomcat-server" />
       <item itemvalue="Tomcat Server.lab3" />
+      <item itemvalue="TomEE Server.TomEE 9.0.31" />
     </list>
     <recent_temporary>
       <list>
@@ -279,12 +470,30 @@
             <expand>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="GlassFish Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="GlassFish Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Failed" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
                 <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="TomEE Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="TomEE Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -314,7 +523,7 @@
       <workItem from="1583496483371" duration="18218000" />
       <workItem from="1583933920544" duration="47000" />
       <workItem from="1584097163031" duration="14404000" />
-      <workItem from="1584961944640" duration="984000" />
+      <workItem from="1584961944640" duration="41977000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1581516472534</created>
@@ -477,7 +686,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583857125427</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="1">
+      <created>1584963144240</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1584963144240</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,6 +721,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="740" y="326" key="#BuildArtifactsBeforeRunChooser" timestamp="1585149672984">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="326" key="#BuildArtifactsBeforeRunChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585149672984" />
+    <state x="552" y="179" key="#Glassfish_Server" timestamp="1585138495681">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Glassfish_Server/0.0.1920.1040@0.0.1920.1040" timestamp="1585138495681" />
     <state x="552" y="179" key="#Inspections" timestamp="1581448639531">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -521,34 +745,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#SQL_Dialects/0.0.1920.1040@0.0.1920.1040" timestamp="1582190908297" />
+    <state x="552" y="179" key="#TomEE_Server" timestamp="1585149171983">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#TomEE_Server/0.0.1920.1040@0.0.1920.1040" timestamp="1585149171983" />
     <state x="552" y="179" key="#Tomcat_Server" timestamp="1581432159211">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Tomcat_Server/0.0.1920.1040@0.0.1920.1040" timestamp="1581432159211" />
-    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581510570315">
+    <state x="657" y="114" key="#Unnamed" timestamp="1585149277213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581510570315" />
-    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1584644340647">
+    <state x="657" y="114" key="#Unnamed/0.0.1920.1040@0.0.1920.1040" timestamp="1585149277213" />
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585237909918">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584644340647" />
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585237909918" />
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1585315468792">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585315468792" />
     <state x="690" y="297" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1581431866175">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="297" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581431866175" />
-    <state x="590" y="210" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1581510992921">
+    <state x="590" y="210" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1585050265142">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="590" y="210" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581510992921" />
+    <state x="590" y="210" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585050265142" />
+    <state x="552" y="179" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable" timestamp="1585237904860">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/0.0.1920.1040@0.0.1920.1040" timestamp="1585237904860" />
     <state x="756" y="418" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1581431867745">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="418" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1920.1040@0.0.1920.1040" timestamp="1581431867745" />
-    <state x="344" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582645103489">
+    <state x="344" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585312785860">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="344" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582645103489" />
+    <state x="344" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585312785860" />
+    <state x="803" y="443" key="#com.intellij.refactoring.turnRefsToSuper.TurnRefsToSuperDialog" timestamp="1585312236174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="803" y="443" key="#com.intellij.refactoring.turnRefsToSuper.TurnRefsToSuperDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585312236174" />
     <state x="690" y="268" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1583827911025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -557,22 +797,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581434898051" />
+    <state x="690" y="136" width="543" height="768" key="#glassfish-server" timestamp="1585140022617">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="136" width="543" height="768" key="#glassfish-server/0.0.1920.1040@0.0.1920.1040" timestamp="1585140022617" />
     <state x="707" y="368" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584638848883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="368" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1584638848883" />
-    <state x="585" y="117" key="CommitChangelistDialog2" timestamp="1584645284255">
+    <state x="585" y="117" key="CommitChangelistDialog2" timestamp="1584963141399">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584645284255" />
+    <state x="585" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584963141399" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1582280047049">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582280047049" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1583933961797">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1585237900773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583933961797" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585237900773" />
     <state x="767" y="388" key="Github.CreatePullRequestDialog" timestamp="1581517203782">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -581,54 +825,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="842" y="414" width="260" height="211" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581516806761" />
-    <state width="1081" height="266" key="GridCell.Tab.0.bottom" timestamp="1584963047390">
+    <state width="1076" height="266" key="GridCell.Tab.0.bottom" timestamp="1585668215228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047390" />
-    <state width="1081" height="266" key="GridCell.Tab.0.center" timestamp="1584963047390">
+    <state width="1076" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215228" />
+    <state width="1076" height="266" key="GridCell.Tab.0.center" timestamp="1585668215228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047390" />
-    <state width="1081" height="266" key="GridCell.Tab.0.left" timestamp="1584963047390">
+    <state width="1076" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215228" />
+    <state width="1076" height="266" key="GridCell.Tab.0.left" timestamp="1585668215228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047390" />
-    <state width="1081" height="266" key="GridCell.Tab.0.right" timestamp="1584963047390">
+    <state width="1076" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215228" />
+    <state width="1076" height="266" key="GridCell.Tab.0.right" timestamp="1585668215228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047390" />
-    <state width="1081" height="266" key="GridCell.Tab.1.bottom" timestamp="1584963047271">
+    <state width="1076" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215228" />
+    <state width="1076" height="266" key="GridCell.Tab.1.bottom" timestamp="1585668215228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047271" />
-    <state width="1081" height="266" key="GridCell.Tab.1.center" timestamp="1584963047271">
+    <state width="1076" height="266" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215228" />
+    <state width="1076" height="266" key="GridCell.Tab.1.center" timestamp="1585668215228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047271" />
-    <state width="1081" height="266" key="GridCell.Tab.1.left" timestamp="1584963047270">
+    <state width="1076" height="266" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215228" />
+    <state width="1076" height="266" key="GridCell.Tab.1.left" timestamp="1585668215228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047270" />
-    <state width="1081" height="266" key="GridCell.Tab.1.right" timestamp="1584963047271">
+    <state width="1076" height="266" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215228" />
+    <state width="1076" height="266" key="GridCell.Tab.1.right" timestamp="1585668215228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047271" />
-    <state width="1081" height="266" key="GridCell.Tab.2.bottom" timestamp="1584963047271">
+    <state width="1076" height="266" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215228" />
+    <state width="1076" height="266" key="GridCell.Tab.2.bottom" timestamp="1585668215229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047271" />
-    <state width="1081" height="266" key="GridCell.Tab.2.center" timestamp="1584963047271">
+    <state width="1076" height="266" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215229" />
+    <state width="1076" height="266" key="GridCell.Tab.2.center" timestamp="1585668215229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047271" />
-    <state width="1081" height="266" key="GridCell.Tab.2.left" timestamp="1584963047271">
+    <state width="1076" height="266" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215229" />
+    <state width="1076" height="266" key="GridCell.Tab.2.left" timestamp="1585668215229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047271" />
-    <state width="1081" height="266" key="GridCell.Tab.2.right" timestamp="1584963047271">
+    <state width="1076" height="266" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215229" />
+    <state width="1076" height="266" key="GridCell.Tab.2.right" timestamp="1585668215229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1081" height="266" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584963047271" />
+    <state width="1076" height="266" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585668215229" />
     <state width="1293" height="266" key="GridCell.Tab.3.bottom" timestamp="1582216641718">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -645,14 +889,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1293" height="266" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582216641718" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1582802731988">
+    <state x="461" y="163" key="SettingsEditor" timestamp="1585139396936">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582802731988" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1584963129460">
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585139396936" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1585668236551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584963129460" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585668236551" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1584097164620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -673,10 +917,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="699" y="312" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584645258736" />
-    <state x="342" y="141" key="new project wizard" timestamp="1583867369992">
+    <state x="342" y="141" key="new project wizard" timestamp="1585472073400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="342" y="141" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1583867369992" />
+    <state x="342" y="141" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1585472073400" />
     <state x="666" y="149" key="refactoring.ChangeSignatureDialog" timestamp="1582197799362">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

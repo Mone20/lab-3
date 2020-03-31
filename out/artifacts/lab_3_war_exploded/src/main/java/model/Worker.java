@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Worker {
     private String firstName;
     private String birthDate;
@@ -60,6 +62,28 @@ public Worker()
         return firstName;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Worker worker = (Worker) o;
+        return id == worker.id &&
+                positionId == worker.positionId &&
+                degreeId == worker.degreeId &&
+                parentId == worker.parentId &&
+                Objects.equals(firstName, worker.firstName) &&
+                Objects.equals(birthDate, worker.birthDate) &&
+                Objects.equals(lastName, worker.lastName) &&
+                Objects.equals(middleName, worker.middleName);
+    }
 
 
+    public String getInf() {
+        return this.getId()+"| "+this.getLastName()+" |"+"| "+this.getFirstName()+" |"+this.getMiddleName()+"|"+this.getBirthDate()+"|";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, birthDate, id, lastName, middleName, positionId, degreeId, parentId);
+    }
 }

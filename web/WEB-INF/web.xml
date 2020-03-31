@@ -5,7 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>workerservlet</servlet-name>
-        <servlet-class>WorkersServlet</servlet-class>
+        <servlet-class>servlets.WorkersServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -14,7 +14,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>positionservlet</servlet-name>
-        <servlet-class>PositionServlet</servlet-class>
+        <servlet-class>servlets.PositionServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -23,7 +23,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>dbservlet</servlet-name>
-        <servlet-class>DBServlet</servlet-class>
+        <servlet-class>servlets.DBServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
