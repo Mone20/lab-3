@@ -17,12 +17,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @MultipartConfig
 
@@ -176,15 +179,28 @@ public class DBServlet extends HttpServlet {
                 }
                 else
                     xmlWorkerStatelessBean.createXML(controllerWorkers.selectAll());
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                TransformerFactory factory = TransformerFactory.newInstance();
+                Source xslt = new StreamSource(new File("xslTable.xsl"));
+                Transformer transformer = factory.newTransformer(xslt);
+                Source xml = new StreamSource(new File("fileXML.xml"));
+                if(!Files.exists(Paths.get("output.html")))
+                    Files.createFile(Paths.get("output.html"));
+                transformer.transform(xml, new StreamResult(new File("output.html")));
+                Scanner scanner = new Scanner(Paths.get("output.html"), StandardCharsets.UTF_8.name());
+                String str = scanner.useDelimiter("\\A").next();
+                scanner.close();
+                int ind=str.indexOf("</body>");
+                str=str.substring(0,ind);
+                request.setAttribute("expHtml",str);
+
+                request.getRequestDispatcher("exportOutput.jsp").forward(request, response);
                 break;
         }
-        } catch (SQLException e) {
+        } catch (SQLException | TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
             e.printStackTrace();
         }
-
-
-
 
 
     }
