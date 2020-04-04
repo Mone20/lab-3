@@ -76,9 +76,9 @@ public HashMap<Worker,Worker> getConflictMap()
                 StreamResult file = new StreamResult(f);
                 transformer.transform(source, file);
                 StreamResult console = new StreamResult(System.out);
-                if(Files.exists(Paths.get("E://test/fileXML.xml")))
+               /* if(Files.exists(Paths.get("E://test/fileXML.xml")))
                     Files.delete(Paths.get("E://test/fileXML.xml"));
-                Files.copy(Paths.get(f.toURI()),Paths.get("E://test/fileXML.xml"));
+                Files.copy(Paths.get(f.toURI()),Paths.get("E://test/fileXML.xml"));*/
             }
 
         } catch (Exception e) {

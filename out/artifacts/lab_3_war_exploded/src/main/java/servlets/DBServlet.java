@@ -17,12 +17,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @MultipartConfig
 
@@ -156,6 +159,7 @@ public class DBServlet extends HttpServlet {
             case "exportXML":
                 HashMap<String,String> map= new HashMap<>();
                 Enumeration<String> attributesNames=request.getParameterNames();
+                boolean flag=true;
                 while(attributesNames.hasMoreElements())
                 {
                     String item=attributesNames.nextElement();
@@ -172,19 +176,38 @@ public class DBServlet extends HttpServlet {
                 if(!map.isEmpty()) {
                     System.out.println(controllerWorkers.select(map));
                     List<Worker> list=controllerWorkers.select(map);
+                    if(list.isEmpty())
+                        flag=false;
                     xmlWorkerStatelessBean.createXML(list);
                 }
                 else
                     xmlWorkerStatelessBean.createXML(controllerWorkers.selectAll());
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                if(flag) {
+                    TransformerFactory factory = TransformerFactory.newInstance();
+                    Source xslt = new StreamSource(new File("xslTable.xsl"));
+                    Transformer transformer = factory.newTransformer(xslt);
+                    Source xml = new StreamSource(new File("fileXML.xml"));
+                    if (!Files.exists(Paths.get("output.html")))
+                        Files.createFile(Paths.get("output.html"));
+                    transformer.transform(xml, new StreamResult(new File("output.html")));
+                    Scanner scanner = new Scanner(Paths.get("output.html"), StandardCharsets.UTF_8.name());
+                    String str = scanner.useDelimiter("\\A").next();
+                    scanner.close();
+                    int ind = str.indexOf("</body>");
+                    str = str.substring(0, ind);
+                    request.setAttribute("expHtml", str);
+                    request.getRequestDispatcher("exportOutput.jsp").forward(request, response);
+                }else
+                    request.getRequestDispatcher("emptyExport.jsp").forward(request, response);
+
+
                 break;
         }
-        } catch (SQLException e) {
+        } catch (SQLException | TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
             e.printStackTrace();
         }
-
-
-
 
 
     }
