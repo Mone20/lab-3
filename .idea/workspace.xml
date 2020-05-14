@@ -7,18 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d93012b9-c9e4-4d2e-a1b0-5149473db4a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_9__2_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/XmlPositionBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab-3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab-3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/PositionServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/WEB-INF/classes/PositionServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/PositionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lab_3_war_exploded/src/main/java/PositionServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/XMLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/XMLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/lab-3.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PositionServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PositionServlet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +325,7 @@
       <workItem from="1585664835359" duration="1881000" />
       <workItem from="1586168539368" duration="626000" />
       <workItem from="1589301634895" duration="3103000" />
-      <workItem from="1589461355620" duration="598000" />
+      <workItem from="1589461355620" duration="832000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1581516472534</created>
@@ -499,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583857125427</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="xml">
+      <created>1589463977568</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1589463977568</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,7 +520,8 @@
       <path value="$PROJECT_DIR$/src/main/java" />
     </ignored-roots>
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="179" key="#Inspections" timestamp="1581448639531">
@@ -583,10 +580,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="368" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1584638848883" />
-    <state x="2505" y="-217" key="CommitChangelistDialog2" timestamp="1589463904753">
+    <state x="2505" y="-217" key="CommitChangelistDialog2" timestamp="1589464057939">
       <screen x="1920" y="-334" width="1920" height="1040" />
     </state>
-    <state x="2505" y="-217" key="CommitChangelistDialog2/0.0.1920.1040/1920.-334.1920.1040@1920.-334.1920.1040" timestamp="1589463904753" />
+    <state x="2505" y="-217" key="CommitChangelistDialog2/0.0.1920.1040/1920.-334.1920.1040@1920.-334.1920.1040" timestamp="1589464057939" />
     <state x="585" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584645284255" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1582280047049">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -696,9 +693,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582802731988" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1584963129460">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2472" y="-80" key="Vcs.Push.Dialog.v2" timestamp="1589463995520">
+      <screen x="1920" y="-334" width="1920" height="1040" />
     </state>
+    <state x="2472" y="-80" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.-334.1920.1040@1920.-334.1920.1040" timestamp="1589463995520" />
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584963129460" />
     <state x="2576" y="11" key="com.intellij.ide.util.TipDialog" timestamp="1589463827337">
       <screen x="1920" y="-334" width="1920" height="1040" />
